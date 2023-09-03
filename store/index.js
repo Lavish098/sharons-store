@@ -26,8 +26,18 @@ export const productStore = defineStore('product', {
         return state.cart.reduce((a, b) => a + (b.price * b.quantity), 0)
       }
   },
- actions : {
-  
+ actions: {
+  addToCart(product){
+    let item = this.cart.find(i => i.id === product.id)
+    console.log(item)
+    if(item){
+      item.quantity++
+     } else {
+      this.cart.push({...product, quantity: 1})
+      console.log(this.cart);
+     }
+     localStorage.setItem('cart', JSON.stringify(this.cart))
+ },
     }
   
     

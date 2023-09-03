@@ -3,14 +3,12 @@
   <Loading v-show="!loading"/>
   <div class="gallery-container">
 
-  <!-- <VueSlickCarousel v-bind="settings" class="slides">
   <div class="mover-1">
     <img src="@/assets/images/images (32).jpeg" alt="">
     </div>
   <div class="mover-2">
     <img src="@/assets/images/images (33).jpeg" alt="">
     </div>
-  </VueSlickCarousel> -->
   </div>
   
   <!-- <categories /> -->

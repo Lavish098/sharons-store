@@ -1,7 +1,7 @@
 <template>
   <div class="table">
     <div class="cart-image">
-   <img :src="require(`@/assets/images/${this.product.image}.jpg`)" alt=""/>
+   <img :src="`@/assets/images/${this.product.image}.jpg`" alt=""/>
     </div>
     <div class="cart-items">
         <p>{{ product.name }}</p>

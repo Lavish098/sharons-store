@@ -1,10 +1,10 @@
 <template>
   <div class="product-card">
       <div class="info" >
-        <img :src=" product.image.jpg" alt=""/>
+        <img :src="`@/assets/images/${product.image}.jpg`" alt=""/>
           <h4>{{ product.name }}</h4>
           <h4 class="price">₦ {{ product.price.toLocaleString() }}</h4>
-          <button @click="addToCart">Add to Cart</button>
+          <button @click="store.addToCart(product)">Add to Cart</button>
     <!-- <nuxt-link :to="{name: 'productDescription', params:{productid: this.product.id} }">
         <i class="fas fa-eye">
         Quick View
@@ -15,22 +15,23 @@
 </template>
 
 <script>
+import { productStore } from  '../store/index'
+
 export default {
     name: "productCard",
     props:['product'],
     data(){
         return{
+            store: productStore(),
             image: this.product.image
         }
     },
     methods:{
-        addToCart(){
-            this.$store.commit('addToCart', this.product)
-        },
+      
     },
     computed:{
     carts(){
-      return this.$store.state.carts;
+      return this.store.cart;
     }
   }, 
     

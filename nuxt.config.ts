@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     "@/assets/css/media.css",
   ],
   imports:{
-    dirs:["./store"]
-  }
+    dirs:["./store", "./assets/images"]
+  },
  
 })
