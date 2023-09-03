@@ -8,7 +8,7 @@ body{
 }
 header{
     background-color: #007eff;
-    padding: 15px;
+    padding: 50px;
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
     border-bottom: 2px solid rgba(208, 208, 207, 0.6);
@@ -47,6 +47,9 @@ header{
     color: #fff;
     font-weight: 500;
     font-size: 25px;
+    position: absolute;
+    top: 30px;
+    left: 14%;
 }
 .mobile-nav{
     padding: 20px;
@@ -62,7 +65,9 @@ header{
     z-index: 9999;
 }
 .menu-icon{
-
+    position: absolute;
+    top: 32px;
+    left: 6%;
 }
 .mobile-nav .links{
     font-size: 30px;
@@ -93,9 +98,9 @@ header{
 /* searchBar */
 .searchBar{
     position: absolute;
-    right: 30%;
-    top: 35px;
-    width: 30%;
+    right: 17%;
+    top: 75px;
+    width: 70%;
 }
 .searchBar input{
     background-color: #cce5ff;
@@ -113,15 +118,16 @@ header{
   
 }
 .searchQuery{
-  background: #3398ff;
+  background: #cce5ff;
   position: absolute;
-  right: 2%;
-  width: 70%;
+  left: 1px;
+  width: 102%;
   color: rgb(36, 35, 32);
-  z-index: 999999;
+  font-size: 15px;
+  z-index: 999;
 }
 .searchQuery h2{
-    padding: 5px;
+    padding: 20px;
 }
 .searchIcon{
   cursor: pointer;
@@ -143,7 +149,10 @@ header{
     font-weight: 600;
     padding: 0 15px;
 }
-
+.item-error{
+    font-size: 30px;
+    margin: 10px;
+}
 /* cart */
 .cart-bar{
     background: whitesmoke;
@@ -151,7 +160,7 @@ header{
     position: fixed;
     top: 0;
     right: 0;
-    width: 30%;
+    width: 100%;
     height: 100vh;
     transition: display .5s;
     overflow: scroll;
@@ -164,18 +173,22 @@ header{
     font-size: 20px;
 }
 .cart-header button{
-    color: white;
-    font-size: 30px;
+    background-color: #007eff;
+    color: #cce5ff;
+    border: none;
+    width: 40px;
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 .cartClose-button{
     margin-left: 40px;
 }
 .cart-header h1{
-    margin-left: 30%;
+    margin-left: 25%;
     display: flex;
     align-self: center;
     color: white;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 600;
 }
 .cart-error{
@@ -183,6 +196,7 @@ header{
     font-weight: lighter;
     font-style: italic;
     display: flex;
+    margin-bottom: 50px;
     justify-content: center;
     align-items: center;
 }
@@ -191,11 +205,19 @@ header{
     display: flex;
 }
 .cart-checkout h2{
+    margin-top: 10px;
     font-size: 20px;
 }
 .cart-checkout button{
     position: absolute;
     right: 30px;
+    background-color: #007eff;
+    color: #cce5ff;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 20px;
+    padding: 10px;
 }
 .cart-checkout .clear{
     position: absolute;
@@ -207,13 +229,13 @@ header{
     margin-left: 20px;
 }
 .cart-items{
-    width: 45%;
+    width: 50%;
     margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 17px;
+    font-size: 20px;
 }
 .cart-button{
     display: flex;
@@ -221,14 +243,18 @@ header{
     align-items: center;
     width: 90px;
     height: 100px;
-    margin-left: 80px;
+    position: absolute;
+    margin-top: 20px;
+    right: 40px;
 }
 .cart-button button{
     align-self: center;
     font-size: 14px;
     text-decoration: none;
     background-color: #3398ff;
-    padding: 7px 15px;
+    padding: 10px 20px;
+    color: #cce5ff;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
@@ -246,7 +272,7 @@ header{
     }
     .table{
         display: flex;
-        width: 95%;
+        width: 90%;
         margin-bottom: 20px;
         padding: 20px;
         border-radius: 20px;
@@ -261,7 +287,7 @@ header{
 .userIcon{
     position: absolute;
     top: 27px;
-    right: 10%;
+    right: 7%;
     }
     .userIcon i {
         color: #cce5ff;;
@@ -269,7 +295,7 @@ header{
     }
     /* categories */
    /* categories */
-.category{
+/* .category{
     width: 100%;
     padding: 10px 5px;
 }
@@ -316,15 +342,15 @@ border-radius: 20px;
         top: 0;
         left: 0;
         transform: translate3d(0, 0, 0);
-      }
+      } */
       /* product card */
       .product-card{
-        width: 100%;
+        width: 70%;
         max-width: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 50px;
+        margin-left: 20px;
         margin-top: 20px;
         border-radius: 8px;
         border: 2px solid rgba(208, 208, 207, 0.6);
