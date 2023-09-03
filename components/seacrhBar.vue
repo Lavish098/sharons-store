@@ -18,9 +18,12 @@
 </template>
 
 <script>
+import { productStore } from  '../store/index'
+
 export default {
 data(){
     return{
+      store: productStore(),
         search: "",
         searchBar: false
     }

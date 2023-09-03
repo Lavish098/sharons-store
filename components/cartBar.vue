@@ -10,7 +10,7 @@
     </div>
            <cartItem v-for="product in products" :key="product.id" :product="product"/>
     <div class="cart-checkout"><h2>Total: ${{ cart_total.toLocaleString()}}</h2>
-    <button @click="removeAll" class="clear">Clear All</button>
+    <button @click="store.removeAll()" class="clear">Clear All</button>
     <button>Checkout</button>
     </div>
     </div>
@@ -37,9 +37,7 @@ export default {
   }
 },
 methods:{
-    removeAll(){
-            // this.$store.commit('removeAll', this.products)
-        }
+   
 },
 mounted(){
   // this.$store.commit('updateCartFromLocalStorage')

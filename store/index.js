@@ -38,6 +38,21 @@ export const productStore = defineStore('product', {
      }
      localStorage.setItem('cart', JSON.stringify(this.cart))
  },
+ removeFromCart(product){
+  let item = this.cart.find(i => i.id === product.id)
+  if(item){
+    if(item.quantity > 1){
+      item.quantity--
+    }
+  else {
+   this.cart = this.cart.filter(i => i.id !== product.id)
+  }
+}
+localStorage.setItem('cart', JSON.stringify(this.cart))
+},
+removeAll(){
+  this.cart = []
+},
     }
   
     
