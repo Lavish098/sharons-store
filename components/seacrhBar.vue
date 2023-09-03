@@ -6,9 +6,10 @@
     </div>
     <div class="searchQuery"  v-if="search">
       <h2 v-for="search in searchQuery" :key="search.id" @click="searchToggle">
-        <!-- <nuxt-link :to="{name: 'productDescription', params:{productid: search.id} }">
+        <nuxt-link >
+          <!-- :to="{name: 'productDescription', params:{productid: search.id} }" -->
         {{search.name}}
-        </nuxt-link> -->
+        </nuxt-link>
       </h2>
     <div class="item-error" v-if="searchQuery.length === 0">
       <p>No result found</p>

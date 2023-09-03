@@ -1,15 +1,15 @@
 <template>
 <div class="home">
   <Loading v-show="!loading"/>
-  <div class="gallery-container">
+  <!-- <div class="gallery-container">
 
-  <!-- <div class="mover-1">
-    <img src="@/assets/images/images (32).jpeg" alt="">
+  <div class="mover-1">
+    <img src="/images/images (32).jpeg" alt="">
     </div>
   <div class="mover-2">
-    <img src="@/assets/images/images (33).jpeg" alt="">
-    </div> -->
-  </div>
+    <img src="/images/images (33).jpeg" alt="">
+    </div>
+  </div> -->
   
   <!-- <categories /> -->
 
