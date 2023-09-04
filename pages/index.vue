@@ -65,7 +65,7 @@ export default {
 .home{
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 120%;
   margin: 0 auto;
   justify-content: center;
   align-items: center;

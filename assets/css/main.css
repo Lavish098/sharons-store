@@ -8,6 +8,7 @@ body{
 }
 header{
     background-color: #007eff;
+    width: 100%;
     padding: 50px;
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
@@ -46,7 +47,7 @@ header{
     margin-left: 10px;
     color: #fff;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 30px;
     position: absolute;
     top: 30px;
     left: 14%;
@@ -83,6 +84,25 @@ header{
     padding: 10px;
     margin-bottom: 40px;
 }
+.mobile-nav-enter-active{
+    transition: all 1s ease;
+}
+
+.mobile-nav-leave-active{
+    transition: all 1s ease;
+}
+.mobile-nav-enter{
+    transform: translateX(-250px);
+}
+.mobile-nav-leave{
+    transform: translateX(0);
+}
+.mobile-nav-enter-to{
+    transform: translateX(0);
+}
+.mobile-nav-leave-to{
+    transform: translateX(-250px);
+}
   .btn-home .bar{
     background: black;
     ;
@@ -98,9 +118,9 @@ header{
 /* searchBar */
 .searchBar{
     position: absolute;
-    right: 17%;
+    right: 0%;
     top: 75px;
-    width: 70%;
+    width: 90%;
 }
 .searchBar input{
     background-color: #cce5ff;
@@ -161,10 +181,29 @@ header{
     top: 0;
     right: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     transition: display .5s;
     overflow: scroll;
     z-index: 99999999999;
+}
+.cart-bar-enter-active{
+    transition: all 1s ease;
+}
+
+.cart-bar-leave-active{
+    transition: all 1s ease;
+}
+.cart-bar-enter{
+    transform: translateX(-250px);
+}
+.cart-bar-leave{
+    transform: translateX(0);
+}
+.cart-bar-enter-to{
+    transform: translateX(0);
+}
+.cart-bar-leave-to{
+    transform: translateX(-250px);
 }
 .cart-header{
     background-color: #007eff;
@@ -214,7 +253,7 @@ header{
     background-color: #007eff;
     color: #cce5ff;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-right: 10px;
     font-size: 20px;
     padding: 10px;
@@ -230,7 +269,6 @@ header{
 }
 .cart-items{
     width: 50%;
-    margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -264,11 +302,11 @@ header{
 .cartIcon{
     position: absolute;
     top: 27px;
-    right: 15%;
+    right: -5%;
     }
     .cartIcon i {
         color: #cce5ff;;
-        font-size: 20px;
+        font-size: 25px;
     }
     .table{
         display: flex;
@@ -287,11 +325,11 @@ header{
 .userIcon{
     position: absolute;
     top: 27px;
-    right: 7%;
+    right: -15%;
     }
     .userIcon i {
         color: #cce5ff;;
-        font-size: 20px;
+        font-size: 25px;
     }
     /* categories */
    /* categories */
@@ -345,12 +383,12 @@ border-radius: 20px;
       } */
       /* product card */
       .product-card{
-        width: 70%;
+        width: 45%;
         max-width: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 20px;
+        margin-left: 10px;
         margin-top: 20px;
         border-radius: 8px;
         border: 2px solid rgba(208, 208, 207, 0.6);
