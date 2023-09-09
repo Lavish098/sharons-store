@@ -12,6 +12,9 @@
       <nuxt-link :to="{name: 'index'}" class="links">Home</nuxt-link>
     <nuxt-link :to="{name: 'products'}" class="links">Products</nuxt-link>
     <nuxt-link :to="{name: 'index'}" class="links">Past order</nuxt-link>
+    <button class="loginBtn">
+      <nuxt-link :to="{name: 'Login'}"> Login/Register</nuxt-link>
+    </button>
     
     </div>
     <seacrhBar />
@@ -29,6 +32,9 @@
               <nuxt-link to="/" class="links" @click="toggleMobileNav">Home</nuxt-link>
     <nuxt-link to="products" class="links" @click="toggleMobileNav">Products</nuxt-link>
     <nuxt-link to="pastorder" class="links" @click="toggleMobileNav">Past order</nuxt-link>
+    <button >
+      <nuxt-link class="loginBtn" :to="{name: 'Login'}" @click="toggleMobileNav"> Login/Register</nuxt-link>
+    </button>
     </ul>
       </transition>
     </header>
