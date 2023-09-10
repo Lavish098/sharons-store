@@ -12,6 +12,7 @@ header{
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
     border-bottom: 2px solid rgba(208, 208, 207, 0.6);
+    width: 90%;
 }
 .nav-links{
     font-family: Arial, Helvetica, sans-serif;
@@ -46,9 +47,9 @@ header{
     margin-left: 10px;
     color: #fff;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
-    top: 25px;
+    top: 30px;
     left: 14%;
 }
 .mobile-nav{
@@ -118,12 +119,13 @@ header{
 .searchBar{
     position: absolute;
     top: 75px;
-    width: 80%;
+    left: 7%;
+    width: 85%;
 }
 .searchBar input{
     background-color: #cce5ff;
     border: none;
-    font-size: 20px;
+    font-size: 19px;
     caret-color: #007eff;
     font-weight: 600;
     width: 100%;
@@ -304,7 +306,7 @@ header{
     }
     .cartIcon i {
         color: #cce5ff;;
-        font-size: 25px;
+        font-size: 20px;
     }
     .table{
         display: flex;
@@ -327,7 +329,7 @@ header{
     }
     .userIcon i {
         color: #cce5ff;;
-        font-size: 25px;
+        font-size: 20px;
     }
     /* categories */
    /* categories */
