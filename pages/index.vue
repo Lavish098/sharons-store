@@ -65,7 +65,6 @@ export default {
 .home{
   display: flex;
   flex-wrap: wrap;
-  width: 111%;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -77,5 +76,6 @@ export default {
   align-content: center;
   margin: 0 auto;
 }
+
 </style>
 
