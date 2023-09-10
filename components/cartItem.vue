@@ -5,7 +5,7 @@
     </div>
     <div class="cart-items">
         <p>{{ product.name }}</p>
-                <p>₦{{ item_cost.toLocaleString() }}</p>
+                <p class="item-price">₦{{ item_cost.toLocaleString() }}</p>
     </div>
     <div class="cart-button">
         <button @click="store.removeFromCart(product)">-</button>

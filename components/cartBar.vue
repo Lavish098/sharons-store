@@ -9,8 +9,12 @@
       <p>No item in cart</p>
     </div>
            <cartItem v-for="product in products" :key="product.id" :product="product"/>
-    <div class="cart-checkout"><h2>Total: ${{ cart_total.toLocaleString()}}</h2>
-    <button @click="store.removeAll()" class="clear">Clear All</button>
+    <div class="cart-checkout">
+      <h2>Total: ${{ cart_total.toLocaleString()}}</h2> 
+    </div>
+
+     <div class="cart-btn">
+<button @click="store.removeAll()" class="clear">Clear All</button>
     <button>Checkout</button>
     </div>
     </div>
