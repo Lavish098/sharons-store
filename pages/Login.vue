@@ -15,45 +15,57 @@
                   <input type="password" placeholder="Password" v-model="password">
                   <i class="fas fa-key icon"></i>
               </div>
-              <!-- <div class="error" v-show="error">{{ this.errorMsg }}</div> -->
+              <div class="error" v-show="error">{{ this.errorMsg }}</div>
               </div>
-              <!-- <router-link class="forgot-password" :to="{name: 'ForgotPassword'}">Forgot your password?</router-link> -->
-              <button @click="signIn" class="login-btn">Sign In</button>
+              <nuxt-link class="forgot-password" :to="{name: 'ForgotPassword'}">Forgot your password?</nuxt-link>
+              <button @click="signIn" class="login-btn">
+                <div class="lds-ellipsis" v-if="isLoading">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    </div>
+                <p v-if="!isLoading">Sign in</p> </button>
               <div class="angle"></div>
       </form>
       <div class="background"></div>
   </div>
 </template>
 
-// <script>
-// import firebase from "firebase/compat/app";
-// import "firebase/compat/auth";
-// export default {
-//     name: 'Login',
-//     data(){
-//         return{
-//             email: null,
-//             password: null,
-//             error:null,
-//             errorMsg:""
-//         }
-//     },
-//     methods:{
-//         signIn(e){
-//             e.preventDefault();
-//             firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
-//                 this.$router.push({ name: 'Home' } );
-//                 this.error = false;
-//                 this.errorMsg = "";
-//             }).catch(err => {
-//                 this.error = true;
-//                 this.errorMsg = err.message;
-//         return;
-//             });
-//         }
-//     }
-// }
-// </script>
+<script>
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+export default {
+    name: 'Login',
+    data(){
+        return{
+            isLoading: false,
+            email: null,
+            password: null,
+            error:null,
+            errorMsg:"",
+            auth: getAuth()
+        }
+    },
+    methods:{
+        signIn(e){
+            this.isLoading = true
+            e.preventDefault();
+            signInWithEmailAndPassword( this.auth, this.email, this.password).then(() => {
+                this.$router.push({ name: 'index' } );
+                this.isLoading = false
+                this.error = false;
+                this.errorMsg = "";
+            }).catch(err => {
+                this.error = true;
+                this.errorMsg = err.message;
+                console.log(err)
+                this.isLoading = false
+        return;
+            });
+        }
+    }
+}
+</script>
 
 <style>
 .form-wrap{
@@ -155,7 +167,7 @@ form h2{
     display: none;
     flex: 2;
     background-size: cover;
-    background-image: url("../assets/background.png");
+    background-image: url("../public/images/background.png");
     height: 100%;
     width: 100%;
 }

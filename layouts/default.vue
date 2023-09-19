@@ -26,6 +26,13 @@
 
               </nuxt-link>
       </div>
+      <!-- <div class="userIcon">
+      
+              <nuxt-link :to="{name: 'Login'}"> 
+<i class="fas fa-user"></i>
+
+              </nuxt-link>
+      </div> -->
     </div>
       
       <transition name="mobile-nav" >

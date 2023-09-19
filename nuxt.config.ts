@@ -1,5 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+
+
 export default defineNuxtConfig({
+  
+runtimeConfig:{
+  FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+
+  public:{
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY
+  },
+},
+
   devtools: { enabled: true },
   modules:[['@pinia/nuxt', {
     autoImports: [
@@ -19,5 +31,5 @@ export default defineNuxtConfig({
   head:{
     viewport: "width=device-width, initial-scale=1, maximum-scale=1"
   }
-}
+},
 })

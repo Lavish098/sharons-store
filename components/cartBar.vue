@@ -8,7 +8,10 @@
     <div class="cart-error" v-if="products.length === 0">
       <p>No item in cart</p>
     </div>
+    <div class="cartItem">
            <cartItem v-for="product in products" :key="product.id" :product="product"/>
+
+    </div>
     <div class="cart-checkout">
       <h2>Total: ${{ cart_total.toLocaleString()}}</h2> 
     </div>

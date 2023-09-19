@@ -5,9 +5,10 @@
 }
 body{
     background-color: whitesmoke;
+    overflow-x: hidden;
 }
 header{
-    background-color: #007eff;
+    background-color: #33373b;
     padding: 50px;
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
@@ -59,7 +60,7 @@ header{
     flex-direction: column;
     position: fixed;
     height: 100%;
-    background-color: #007eff;
+    background-color: #33373b;
     top: 0;
     left: 0;
     z-index: 9999;
@@ -75,7 +76,7 @@ header{
     color: #fff;
 }
 .mobile-nav button{
-    background-color: #007eff;
+    background-color: #33373b;
     color: #cce5ff;
     border: none;
     width: 40px;
@@ -276,13 +277,19 @@ header{
     font-size: 20px;
     margin-top: -50px;
 }
+.cartItem{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+}
 .cart-button{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90px;
     height: 100px;
-    position: absolute;
     margin-top: 30px;
     right: 40px;
 }
@@ -311,7 +318,11 @@ header{
     }
     .table{
         line-height: 30px;
+        max-width: 500px;
         display: flex;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
         width: 85%;
         margin-bottom: 20px;
         padding: 25px;
@@ -477,7 +488,7 @@ border-radius: 20px;
         text-decoration: none;
     
 }
-.login-btn, .register-btn{
+.login-btn, .register-btn, .reset-btn{
         color: #3398ff;
         border: 2px solid #3398ff;
         margin-top: 10px;
@@ -487,3 +498,67 @@ border-radius: 20px;
         text-decoration: none;
     
 }
+
+/* signin loader */
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 20px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 8px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #3398ff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+  .error{
+    background-color: #33373b;
+    color: #cce5ff;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 7px;
+  }
