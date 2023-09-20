@@ -4,7 +4,7 @@
    <img :src="`/images/${this.product.image}.jpg`" alt=""/>
     </div>
     <div class="cart-items">
-        <p>{{ product.name }}</p>
+        <p>{{ product.title }}</p>
                 <p class="item-price">₦{{ item_cost.toLocaleString() }}</p>
     </div>
     <div class="cart-button">
