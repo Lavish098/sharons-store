@@ -3,18 +3,20 @@
 
 import { defineStore } from 'pinia'
 import products from '../data/products.js'
+// import productsFake from '../data/fakeProducts.js'
 
 
 
 export const productStore = defineStore('product', {
   state: () => ({
-    productItems: products,
+    productItems: [],
     cart:[],
     productReviews:[]
     }),
     getters: {
       productFeeds: state => {
         return state.productItems.slice(0, 6)
+      
       },
       products: state => {
         return state.productItems
@@ -29,12 +31,10 @@ export const productStore = defineStore('product', {
  actions: {
   addToCart(product){
     let item = this.cart.find(i => i.id === product.id)
-    console.log(item)
     if(item){
       item.quantity++
      } else {
       this.cart.push({...product, quantity: 1})
-      console.log(this.cart);
      }
      localStorage.setItem('cart', JSON.stringify(this.cart))
  },
@@ -53,8 +53,14 @@ localStorage.setItem('cart', JSON.stringify(this.cart))
 removeAll(){
   this.cart = []
 },
-    }
-  
+async getProducts(){
+  const result = await fetch('https://fakestoreapi.com/products')
+   const data = await result.json();
+   this.productItems = data
+
+ },
+    },
+ 
     
 })
 

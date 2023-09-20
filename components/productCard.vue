@@ -1,7 +1,7 @@
 <template>
   <div class="product-card">
       <div class="info" >
-        <img :src="`/images/${image}.jpg`" alt=""/>
+        <img :src="this.image" alt=""/>
           <h4>{{ product.name }}</h4>
           <p class="price">₦ {{ product.price.toLocaleString() }}</p>
           <button @click="store.addToCart(product)">Add to Cart</button>

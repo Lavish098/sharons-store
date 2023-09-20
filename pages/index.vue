@@ -45,7 +45,8 @@ export default {
     productFeeds(){
     this.loading = true
       return this.store.productFeeds;
-    }
+    },
+    
   },
   methods:{
     viewProduct(product){
@@ -58,7 +59,10 @@ export default {
       console.log(this.active.product_drawer)
     }
   },
- 
+  created(){
+      this.store.getProducts()
+   
+  }
 }
 </script>
 <style>

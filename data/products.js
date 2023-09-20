@@ -1,3 +1,5 @@
+
+
 const products = [
     { "id": 1,  "name": "Hp 14 Intel Celeron 1TB 4GB",   "image": "Hp14",    "price": 180500, "type": "HP",
 "description": "HP Laptop 14-cf2174nia, 14”, FreeDOS, Intel® Celeron®, 4GB RAM, 1TB HDD, HD, Pale gold" },
@@ -29,4 +31,5 @@ const products = [
 "description": "11th Generation Intel® Core™ i7-1135G7 Processor (2.40 GHz, up to 4.20 GHz with Turbo Boost, 4 Cores, 8 Threads, 8 MB Cache) Windows 10 Pro 64 14.0 WUXGA (1920 x 1200) IPS, anti-glare, low-power, 400 nits 8 GB LPDDR4X 4266MHz (Soldered) 256 GB PCIe SSD Integrated Intel® Iris® Xe Graphics IR & 720p HD with HPD Fingerprint Reader Keyboard Backlit - US English Intel® Wi-Fi 6 AX201 802.11AX (2 x 2) & Bluetooth® 5.2"     },
     ]
 
-export default products
+    
+export default products 
