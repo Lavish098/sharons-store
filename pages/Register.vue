@@ -27,7 +27,7 @@
                   <input type="password" placeholder="Password" v-model="password">
                   <i class="fas fa-key icon"></i>
               </div>
-              <div class="error" v-show="error">{{ this.errorMsg }}</div>
+              <div class="error" v-if="error">{{ this.errorMsg }}</div>
               </div>
               <button @click.prevent="register" class="register-btn">
                 <div class="lds-ellipsis" v-if="isLoading">

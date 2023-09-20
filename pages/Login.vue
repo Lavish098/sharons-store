@@ -15,9 +15,9 @@
                   <input type="password" placeholder="Password" v-model="password">
                   <i class="fas fa-key icon"></i>
               </div>
-              <div class="error" v-show="error">{{ this.errorMsg }}</div>
+              <div class="error" v-if="error">{{ this.errorMsg }}</div>
               </div>
-              <nuxt-link class="forgot-password" :to="{name: 'ForgotPassword'}">Forgot your password?</nuxt-link>
+              <router-link class="forgot-password" :to="{name: 'ForgotPassword'}">Forgot your password?</router-link>
               <button @click="signIn" class="login-btn">
                 <div class="lds-ellipsis" v-if="isLoading">
                     <div></div>
@@ -48,18 +48,18 @@ export default {
     },
     methods:{
         signIn(e){
-            this.isLoading = true
             e.preventDefault();
+            this.isLoading = true;
             signInWithEmailAndPassword( this.auth, this.email, this.password).then(() => {
+                
                 this.$router.push({ name: 'index' } );
-                this.isLoading = false
                 this.error = false;
                 this.errorMsg = "";
             }).catch(err => {
+                this.isLoading = false;
                 this.error = true;
                 this.errorMsg = err.message;
                 console.log(err)
-                this.isLoading = false
         return;
             });
         }
