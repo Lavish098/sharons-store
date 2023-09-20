@@ -59,10 +59,7 @@ export default {
       console.log(this.active.product_drawer)
     }
   },
-  created(){
-      this.store.getProducts()
-   
-  }
+  
 }
 </script>
 <style>

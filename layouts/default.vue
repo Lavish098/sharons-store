@@ -54,9 +54,12 @@
 
 <script>
 import '@/fontawesome-free-5.15.1-web/css/all.css'
+import { productStore } from  '../store/index'
+
 export default {
 data(){
   return{
+    store: productStore(),
     cartBar: false,
      mobile: null,
         mobileNav: null,
@@ -72,6 +75,10 @@ mounted(){
     this.checkScreen();
   }
 },
+created(){
+      this.store.getProducts()
+   
+  },
 
 methods:{
     checkScreen(){

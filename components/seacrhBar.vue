@@ -8,7 +8,7 @@
       <h2 v-for="search in searchQuery" :key="search.id" @click="searchToggle">
         <nuxt-link >
           <!-- :to="{name: 'productDescription', params:{productid: search.id} }" -->
-        {{search.name}}
+        {{search.title}}
         </nuxt-link>
       </h2>
     <div class="item-error" v-if="searchQuery.length === 0">
@@ -36,7 +36,7 @@ data(){
   searchQuery(){
     if(this.search){
       return this.products.filter(item => {
-        return this.search.toLowerCase().split(" ").every(v => item.name.toLowerCase().includes(v))
+        return this.search.toLowerCase().split(" ").every(v => item.title.toLowerCase().includes(v))
       })
     }else{
       return this.products
