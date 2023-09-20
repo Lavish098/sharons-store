@@ -1,7 +1,7 @@
 <template>
   <div class="table">
     <div class="cart-image">
-   <img :src="`/images/${this.product.image}.jpg`" alt=""/>
+   <img :src="this.image" alt=""/>
     </div>
     <div class="cart-items">
         <p>{{ product.title }}</p>
@@ -23,7 +23,8 @@ export default {
 props:['product'],
 data(){
     return{
-        store: productStore()
+        store: productStore(),
+        image: this.product.image
     }
 },
 computed:{
