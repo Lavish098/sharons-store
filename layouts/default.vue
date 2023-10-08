@@ -12,20 +12,17 @@
       <nuxt-link :to="{name: 'index'}" class="links">Home</nuxt-link>
     <nuxt-link :to="{name: 'products'}" class="links">Products</nuxt-link>
     <nuxt-link :to="{name: 'index'}" class="links">Past order</nuxt-link>
-    
-    
+     
     </div>
     <seacrhBar />
     <div class="cartIcon" @click="toggleCartBar">
       <i class="fas fa-shopping-cart"></i>
       </div>
-    <div class="userIcon">
-      
-              <nuxt-link :to="{name: 'Login'}"> 
-<i class="fas fa-user"></i>
-
-              </nuxt-link>
+    
+       <div class="userIcon" v-if="user" @click="toggleProfileMenu">
+<span>{{ this.store.profileInitials }}</span>
       </div>
+      <userIcon  :user="user" v-show="profileMenu"/>
       <!-- <div class="userIcon">
       
               <nuxt-link :to="{name: 'Login'}"> 
@@ -38,6 +35,11 @@
       <transition name="mobile-nav" >
           <ul class="mobile-nav"  v-show="mobileNav">
             <button @click="toggleMobileNav">X</button>
+            <div class="loginIcon" v-if="!user">
+              <nuxt-link :to="{name: 'Login'}" > 
+                LOGIN
+              </nuxt-link>
+      </div>
               <nuxt-link to="/" class="links" @click="toggleMobileNav">Home</nuxt-link>
     <nuxt-link to="products" class="links" @click="toggleMobileNav">Products</nuxt-link>
     <nuxt-link to="pastorder" class="links" @click="toggleMobileNav">Past order</nuxt-link>
@@ -48,6 +50,11 @@
 
     <cartBar v-if="cartBar" 
     :toggle="toggleCartBar" />
+    <div class="login-icon" v-if="!user" v-show="!mobile">
+              <nuxt-link :to="{name: 'Login'}" > 
+                LOGIN
+              </nuxt-link>  
+    </div>
     <slot @click="toggleMobileNav"/>
   </div>
 </template>
@@ -64,6 +71,7 @@ data(){
      mobile: null,
         mobileNav: null,
         windowWidth: null,
+        profileMenu: null,
   }
 },
 computed:{
@@ -76,7 +84,7 @@ mounted(){
   }
 },
 created(){
-      this.store.getProducts()
+      this.store.getProducts();
    
   },
 
@@ -84,7 +92,7 @@ methods:{
     checkScreen(){
       if(process.client){
         this.windowWidth = window.innerWidth;
-        if(this.windowWidth <= 1101){
+        if(this.windowWidth <= 850){
           this.mobile = true;
             return;
         }
@@ -98,7 +106,18 @@ methods:{
     },
 toggleCartBar(){
   this.cartBar = !this.cartBar
-}
+},
+  toggleProfileMenu(){
+            this.profileMenu = !this.profileMenu;
+        
+        
+    },
+},
+computed:{
+  user(){
+    console.log(this.store.user);
+        return this.store.user
+      }
 }
 }
 </script>

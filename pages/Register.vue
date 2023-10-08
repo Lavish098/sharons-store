@@ -45,7 +45,8 @@
 
 <script>
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth';
-import { doc, setDoc } from "firebase/firestore"
+import {  getFirestore, doc, setDoc } from "firebase/firestore";
+
 
 export default {
     name: 'Register',
@@ -76,13 +77,14 @@ export default {
                 const firebaseAuth = getAuth();
                 const createUser = await createUserWithEmailAndPassword( firebaseAuth, this.email, this.password, this.username );
                 const result = await createUser;
-                // const dataBase = db.collection("users").doc(result.user.uid);
-                // await dataBase.set({
-                //     firstName: this.firstName,
-                // lastName: this.lastName,
-                // username: this.username, 
-                //     email: this.email,
-                // });
+          const db = getFirestore()
+
+                await setDoc(doc(db, "users", result.user.uid), {
+                    firstName: this.firstName,
+                lastName: this.lastName,
+                username: this.username, 
+                    email: this.email,
+                });
                 this.$router.push({ name: 'index' });
                 const user = getAuth().currentUser
                     console.log(user);

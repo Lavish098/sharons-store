@@ -2,6 +2,8 @@
 
 
 import { defineStore } from 'pinia'
+import { getAuth } from 'firebase/auth';
+import {  getFirestore, doc, getDoc } from "firebase/firestore";
 import products from '../data/products.js'
 // import productsFake from '../data/fakeProducts.js'
 
@@ -11,7 +13,16 @@ export const productStore = defineStore('product', {
   state: () => ({
     productItems: [],
     cart:[],
-    productReviews:[]
+    productReviews:[],
+    user: null,
+    userDetails:[],
+    profileAdmin: null,
+    profileEmail: null,
+    profileFirstName: null,
+    profileLastName: null,
+    profileUsername: null,
+    profileId: null,
+    profileInitials: null,
     }),
     getters: {
       productFeeds: state => {
@@ -59,7 +70,51 @@ async getProducts(){
    this.productItems = data
 
  },
+ updateUser(user){
+  console.log(user)
+  this.user = user
+ },
+ async getCurrentUser(user){
+  const firebaseAuth = getAuth();
+  const db = getFirestore();
+  const dataBase = doc(db, 'users', firebaseAuth.currentUser.uid);
+  const docSnap = await getDoc(dataBase);
+  if(docSnap.exists()){
+    console.log(docSnap.data());
+    const dbResult = docSnap.data();
+    this.userDetails.push(dbResult)
+    this.setProfileInfo(this.userDetails)
+    this.setProfileInitials(this.setProfileInfo())
+  }
+  const token = await user.getIdTokenResult();
+  // const admin = await token.claims.admin;
+  // commit('setProfileAdmin', admin);
+},
+setProfileInfo(){
+  console.log(this.userDetails);
+  this.userDetails.map((item) => {
+    console.log(item);
+    const doc = item
+    console.log(doc.email);
+    this.profileEmail = doc.email;
+    this.profileFirstName = doc.firstName;
+    this.profileLastName = doc.lastName;
+    this.profileUsername = doc.username;
+  })
+
+  // state.profileId = doc.id;
+ 
+},
+setProfileInitials(){
+  this.profileInitials = 
+  this.profileFirstName.match(/(\b\S)?/g).join("") + 
+  this.profileLastName.match(/(\b\S)?/g).join("");
+  console.log(this.profileFirstName);
+
+  console.log(this.profileInitials);
+},
     },
+   
  
     
 })

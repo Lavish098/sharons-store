@@ -22,6 +22,7 @@ v-on:view-product="viewProduct($event)"
 </template>
 
 <script>
+import { getAuth } from 'firebase/auth'
 import { productStore } from  '../store/index'
 
 
@@ -46,8 +47,19 @@ export default {
     this.loading = true
       return this.store.productFeeds;
     },
-    
   },
+  
+  created(){
+      getAuth().onAuthStateChanged(async (user) => {
+        this.store.updateUser(user);
+        if(user){
+          console.log(user)
+          this.store.getCurrentUser(user);
+          this.store.setProfileInfo()
+          this.store.setProfileInitials()
+        }
+      })
+    },
   methods:{
     viewProduct(product){
       this.product = product
