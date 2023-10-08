@@ -8,11 +8,10 @@ body{
     overflow-x: hidden;
 }
 header{
-    background-color: #33373b;
     padding: 50px;
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
-    border-bottom: 2px solid rgba(208, 208, 207, 0.6);
+    border-bottom: 1px solid #007eff
 }
 .nav-links{
     font-family: Arial, Helvetica, sans-serif;
@@ -45,7 +44,7 @@ header{
 .name{
     text-decoration: none;
     margin-left: 10px;
-    color: #fff;
+    color: #007eff;
     font-weight: 500;
     font-size: 25px;
     position: absolute;
@@ -54,13 +53,13 @@ header{
 }
 .mobile-nav{
     padding: 20px;
-    width: 70%;
-    max-width: 250px;
+    width: 80%;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     position: fixed;
     height: 100%;
-    background-color: #33373b;
+    background-color: whitesmoke;
     top: 0;
     left: 0;
     z-index: 9999;
@@ -73,11 +72,11 @@ header{
 .mobile-nav .links{
     font-size: 30px;
     padding: 10px 0;
-    color: #fff;
+    color: #007eff;
 }
 .mobile-nav button{
-    background-color: #33373b;
-    color: #cce5ff;
+    background-color: whitesmoke;
+    color: #007eff;
     border: none;
     width: 40px;
     font-size: 50px;
@@ -113,7 +112,7 @@ header{
       margin-bottom: 5px;
       border-radius: 5px;
       margin-top: 4px;
-      background: #cce5ff;
+      background: #007eff;
   }
 /* searchBar */
 .searchBar{
@@ -142,13 +141,14 @@ header{
   position: absolute;
   left: 1px;
   width: 102%;
-  color: rgb(36, 35, 32);
+  color: #007eff;
   font-size: 15px;
   z-index: 999;
 }
 .searchQuery h2{
     padding: 20px;
 }
+
 .searchIcon{
   cursor: pointer;
   color: #007eff;
@@ -313,7 +313,7 @@ header{
     right: 15%;
     }
     .cartIcon i {
-        color: #cce5ff;;
+        color: #007eff;
         font-size: 30px;
     }
     .table{
@@ -338,15 +338,15 @@ header{
 /* user */
 .userIcon{
     position: absolute;
-    top: 27px;
-    right: 5%;
-    background-color: #cce5ff;
+    top: 20px;
+    right: 2%;
+    border: 2px solid #3398ff;
     padding: 7px;
-    border-radius: 20px;
+    border-radius: 25px;
     }
     .userIcon span {
-        color: whitesmoke;
-        font-size: 30px;
+        color: #007eff;
+        font-size: 21px;
     }
     .loginIcon{
         align-self: center;

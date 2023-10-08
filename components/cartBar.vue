@@ -13,7 +13,7 @@
 
     </div>
     <div class="cart-checkout">
-      <h2>Total: ${{ cart_total.toLocaleString()}}</h2> 
+      <h2>Total: ₦{{ cart_total.toLocaleString()}}</h2> 
     </div>
 
      <div class="cart-btn">

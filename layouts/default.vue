@@ -50,7 +50,8 @@
 
     <cartBar v-if="cartBar" 
     :toggle="toggleCartBar" />
-    <div class="login-icon" v-if="!user" v-show="!mobile">
+
+    <div class="login-icon" v-if="!user" v-show="!mobile" @click="toggleMobileNav">
               <nuxt-link :to="{name: 'Login'}" > 
                 LOGIN
               </nuxt-link>  

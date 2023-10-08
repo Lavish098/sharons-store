@@ -77,7 +77,7 @@ span{
     position: absolute;
     cursor: pointer;
     display: flex;
-    right: -95px;
+    right: 40px;
     align-items: center;
     justify-content: center;
     width: 40px;
@@ -88,10 +88,9 @@ span{
 }
 .profile .profile-menu{
     position: absolute;
-    top: 30px;
-    right: 10px;
+    top: 30%;
     width: 300px;
-    background-color: #303030;
+    background-color: #007eff;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86);
 }
 .profile-menu .info{
@@ -105,7 +104,7 @@ span{
     width: 40px;
     height: 40px;
     background-color: #fff;
-    color: #303030;
+    color: #007eff;
     display: flex;
     align-items: center;
     justify-content: center;
