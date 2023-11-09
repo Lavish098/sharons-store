@@ -15,14 +15,17 @@
      
     </div>
     <seacrhBar />
-    <div class="cartIcon" @click="toggleCartBar">
+    <div class="cartIcon" v-if="user" @click="toggleCartBar">
+      <i class="fas fa-shopping-cart"></i>
+      </div>
+    <div class="cart-Icon" v-if="!user" @click="toggleCartBar">
       <i class="fas fa-shopping-cart"></i>
       </div>
     
        <div class="userIcon" v-if="user" @click="toggleProfileMenu">
 <span>{{ this.store.profileInitials }}</span>
       </div>
-      <userIcon  :user="user" v-show="profileMenu"/>
+      <userIcon  :user="user" v-if="profileMenu" @click="toggleProfileMenu"/>
       <!-- <div class="userIcon">
       
               <nuxt-link :to="{name: 'Login'}"> 
@@ -35,7 +38,7 @@
       <transition name="mobile-nav" >
           <ul class="mobile-nav"  v-show="mobileNav">
             <button @click="toggleMobileNav">X</button>
-            <div class="loginIcon" v-if="!user">
+            <div class="loginIcon" v-if="!user" @click="toggleMobileNav">
               <nuxt-link :to="{name: 'Login'}" > 
                 LOGIN
               </nuxt-link>
@@ -51,7 +54,7 @@
     <cartBar v-if="cartBar" 
     :toggle="toggleCartBar" />
 
-    <div class="login-icon" v-if="!user" v-show="!mobile" @click="toggleMobileNav">
+    <div class="login-icon" v-if="user" v-show="!mobile">
               <nuxt-link :to="{name: 'Login'}" > 
                 LOGIN
               </nuxt-link>  
@@ -124,7 +127,5 @@ computed:{
 </script>
 
 <style scoped>
-#nav{
-  width: 100%;
-}
+
 </style>

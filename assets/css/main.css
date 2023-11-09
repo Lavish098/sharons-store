@@ -2,6 +2,7 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
     background-color: whitesmoke;
@@ -11,6 +12,7 @@ header{
     padding: 50px;
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
+    width: 110%;
     border-bottom: 1px solid #007eff
 }
 .nav-links{
@@ -63,6 +65,8 @@ header{
     top: 0;
     left: 0;
     z-index: 9999;
+    transition: all 1s ease;
+
 }
 .menu-icon{
     position: absolute;
@@ -118,8 +122,8 @@ header{
 .searchBar{
     position: absolute;
     top: 75px;
-    left: 7%;
-    width: 85%;
+    left: 20%;
+    max-width: 700px;
 }
 .searchBar input{
     background-color: #cce5ff;
@@ -310,12 +314,21 @@ header{
 .cartIcon{
     position: absolute;
     top: 27px;
-    right: 15%;
+    right: 0%;
     }
     .cartIcon i {
         color: #007eff;
         font-size: 30px;
     }
+    .cart-Icon{
+        position: absolute;
+        top: 27px;
+        right: 5%;
+        font-size: 30px;
+        }
+        .cart-Icon i {
+            color: #007eff;
+        }    
     .table{
         line-height: 30px;
         max-width: 500px;
@@ -339,7 +352,7 @@ header{
 .userIcon{
     position: absolute;
     top: 20px;
-    right: 2%;
+    right: -10%;
     border: 2px solid #3398ff;
     padding: 7px;
     border-radius: 25px;

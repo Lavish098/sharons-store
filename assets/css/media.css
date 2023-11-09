@@ -3,15 +3,15 @@
     .home, .product{
         width: 110%;
       }
-    header{
-        width: 94%;
-    }
         .searchBar{
             padding: 10px;
             width: 110%;
-            left: 0px;
+            left: 10%;
             top: 65px;
 }
+  .cartIcon{
+            right: 1%;
+            }
 .name{
     font-size: 30px;
     top: 27px;
@@ -24,10 +24,6 @@
     font-size: 15px;
     width: 80%;
     font-size: 15px;
-}
-.userIcon{
-    top: 29px;
-    right: -10%;
 }
     .gallery-container {
         height: 400px;
@@ -55,10 +51,7 @@
         width: 100%;
         height: 100%;
     }
-    .cartIcon{
-        top: 29px;
-        right: 0%;
-    }
+    
     .cart-items{
         width: 45%;
         margin-left: -50px;
@@ -101,17 +94,6 @@
 }
 
 @media screen and (min-width: 600px) {
-    header{
-        width: 96.5%;
-    }
-        .userIcon{
-            top: 30px;
-            right: -10%;
-        }
-        .cartIcon{
-            top: 30px;
-            right: 5%;
-        }
             .gallery-container {
                 height: 400px;
                 margin-top: 10px;
@@ -145,9 +127,7 @@
 }
 
 @media screen and (min-width: 665px) {
-    header{
-        width: 98%;
-    }
+   
     .nav-links{
        top: 20px;
        left: 30%;
@@ -155,13 +135,8 @@
    .name{
     margin-top: 0px;
    }
-    .userIcon{
-        right: -7%;
-                    }
                            /* categories */
-                        .cartIcon{
-                            right: -51;
-                        }
+                       
                        
                         .cart-button{
                             right: 80px;
@@ -183,9 +158,7 @@
                 }
 }
 @media screen and (min-width: 800px) {
-    header{
-        width: 100%;
-    }
+ 
     .product-card{
         width: 30%;
     }
@@ -193,11 +166,17 @@
 @media screen and (min-width: 755px) {
     .name{
         font-size: 28px;
-        left: 4%;
+        left: 7%;
+    }
+    .cartIcon{
+        right: 0%;
+    }
+    .userIcon{
+        right: -8%;
     }
     .nav-links{
         margin-top: 5px;
-        left: 35%;
+        left: 38%;
     }
 }
 @media screen and (min-width: 984px) {

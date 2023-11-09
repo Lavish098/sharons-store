@@ -12,13 +12,13 @@
                           </div>
                           <div class="options">
                               <div class="option" >
-                                  <router-link @click="toggleProfileMenu" class="option" :to="{name: 'index'}">
+                                  <router-link class="option" :to="{name: 'Profile'}">
                                       <i class="fas fa-user icon"></i>
                                       <p>Profile</p>
                                   </router-link>
                               </div>
                               <div v-if="admin" class="option" >
-                                  <router-link @click="toggleProfileMenu" class="option" :to="{name: 'index'}">
+                                  <router-link class="option" :to="{name: 'index'}">
                                       <i class="fas fa-user-shield icon"></i>
                                       <p>Admin</p>
                                   </router-link>
@@ -77,9 +77,7 @@ span{
     position: absolute;
     cursor: pointer;
     display: flex;
-    right: 40px;
-    align-items: center;
-    justify-content: center;
+    right: 0px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -89,6 +87,7 @@ span{
 .profile .profile-menu{
     position: absolute;
     top: 30%;
+    right: -100%;
     width: 300px;
     background-color: #007eff;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86);

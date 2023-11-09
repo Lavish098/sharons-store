@@ -100,9 +100,11 @@ setProfileInfo(){
     this.profileFirstName = doc.firstName;
     this.profileLastName = doc.lastName;
     this.profileUsername = doc.username;
+    this.profileId = this.user.uid;
+
+    console.log(this.profileId);
   })
 
-  // state.profileId = doc.id;
  
 },
 setProfileInitials(){
@@ -114,8 +116,24 @@ setProfileInitials(){
   console.log(this.profileInitials);
 },
     },
-   
- 
+async updateUserSettings(){
+      const dataBase = await db.collection('users').doc(this.profileId);
+      await dataBase.update({
+        firstName: this.profileFirstName,
+        LastName: this.profileLastName,
+        username: this.profileUsername
+      });
+    this.setProfileInitials(this.updateUserSettings())
+    },
+    changeFirstName(state, payload){
+      this.profileFirstName = payload
+    },
+    changeLastName(state, payload){
+      this.profileLastName = payload
+    },
+    changeUserName(state, payload){
+      this.profileUsername = payload
+    },
     
 })
 
