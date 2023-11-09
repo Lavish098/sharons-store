@@ -3,7 +3,7 @@
 
 import { defineStore } from 'pinia'
 import { getAuth } from 'firebase/auth';
-import {  getFirestore, doc, getDoc } from "firebase/firestore";
+import {  getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import products from '../data/products.js'
 // import productsFake from '../data/fakeProducts.js'
 
@@ -111,29 +111,32 @@ setProfileInitials(){
   this.profileInitials = 
   this.profileFirstName.match(/(\b\S)?/g).join("") + 
   this.profileLastName.match(/(\b\S)?/g).join("");
-  console.log(this.profileFirstName);
-
-  console.log(this.profileInitials);
+},
+async updateUserSettings(){
+  const firebaseAuth = getAuth();
+  const db = getFirestore();
+  const dataBase = doc(db, 'users', firebaseAuth.currentUser.uid);
+  await updateDoc(dataBase, {
+    firstName: this.profileFirstName,
+    lastName: this.profileLastName,
+    username: this.profileUsername
+  });
+this.setProfileInitials(this.updateUserSettings())
+},
+changeFirstName(payload){
+  console.log(payload);
+  this.profileFirstName = payload
+},
+changeLastName(payload){
+  console.log(payload);
+  this.profileLastName = payload
+},
+changeUserName(payload){
+  console.log(payload);
+  this.profileUsername = payload
 },
     },
-async updateUserSettings(){
-      const dataBase = await db.collection('users').doc(this.profileId);
-      await dataBase.update({
-        firstName: this.profileFirstName,
-        LastName: this.profileLastName,
-        username: this.profileUsername
-      });
-    this.setProfileInitials(this.updateUserSettings())
-    },
-    changeFirstName(state, payload){
-      this.profileFirstName = payload
-    },
-    changeLastName(state, payload){
-      this.profileLastName = payload
-    },
-    changeUserName(state, payload){
-      this.profileUsername = payload
-    },
+
     
 })
 

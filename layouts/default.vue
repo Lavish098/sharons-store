@@ -51,14 +51,14 @@
       </transition>
     </header>
 
-    <cartBar v-if="cartBar" 
-    :toggle="toggleCartBar" />
-
-    <div class="login-icon" v-if="user" v-show="!mobile">
+    <div class="login-icon" v-if="!user" v-show="!mobile">
               <nuxt-link :to="{name: 'Login'}" > 
                 LOGIN
               </nuxt-link>  
     </div>
+    <cartBar v-if="cartBar" 
+    :toggle="toggleCartBar" />
+    
     <slot @click="toggleMobileNav"/>
   </div>
 </template>

@@ -40,9 +40,18 @@ methods:{
     background-color: #fff;
 }
 .modal-content p{
+    font-size: 25px;
     text-align: center;
 }
 .modal-content button{
     align-self: center;
+}
+.modal-content button{
+    color: #3398ff;
+        border: 2px solid #3398ff;
+        margin-top: 10px;
+        padding: 15px 35px;
+        border-radius: 5px;
+        font-size: 20px;
 }
 </style>

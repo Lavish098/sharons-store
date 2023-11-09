@@ -12,7 +12,7 @@ header{
     padding: 50px;
     /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86); */
     z-index: 99;
-    width: 110%;
+    width: 100%;
     border-bottom: 1px solid #007eff
 }
 .nav-links{
@@ -28,8 +28,6 @@ header{
 .links{
     text-decoration: none;
     color: #cce5ff;
-
-
     margin-right: 20px;
 }
 .links.nuxt-link-active{
@@ -380,13 +378,13 @@ header{
     .login-icon{
         position: absolute;
         top: 20px;
-        right: -90px;
+        right: 80px;
         background-color: #cce5ff;
         padding: 5px;
         border-radius: 20px;
         font-size: 20px;
         margin-top: 2px;
-        padding: 15px 25px;
+        padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
         margin-right: 10px;

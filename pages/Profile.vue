@@ -4,7 +4,8 @@
       <div class="container">
           <h2>Account Settings</h2>
           <div class="profile-info">
-              <div class="initials">{{ this.store.profileInitials }}</div>
+              <div class="initials">
+                <span>{{ this.store.profileInitials }}</span></div>
               <div class="admin-badge">
                   <i class="fas fa-user-shield icon"></i>
                   <span>Admin</span>
@@ -25,7 +26,15 @@
                   <label for="email">Email:</label>
                   <input disabled type="text" id="Email" v-model="email">
               </div>
-              <button @click="updateProfile" class="profile-save-btn">Save Changes</button>
+              <button @click="updateProfile" class="profile-save-btn">
+                <div class="lds-ellipsis" v-if="isLoading">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    </div>
+                <p v-if="!isLoading">Save Changes</p> 
+              </button>
              </div>
              </div>
   </div>
@@ -33,7 +42,9 @@
 
 <script>
 import Modal from '../components/Modal.vue'
+import { getAuth } from 'firebase/auth'
 import { productStore } from '../store/index'
+
 export default {
 components:{
     Modal
@@ -42,16 +53,20 @@ data(){
     return{
         store: productStore(),
         modalMessage: "Changes were made",
-        modalActive: null
+        modalActive: null,
+        isLoading: false
     }
 },
 methods:{
     updateProfile(){
+        this.isLoading = true
         this.store.updateUserSettings();
         this.modalActive = !this.modalActive
     },
     closeModal(){
         this.modalActive = !this.modalActive
+                this.isLoading = false
+
     }
 },
 computed:{
@@ -60,6 +75,7 @@ computed:{
             return this.store.profileFirstName;
         },
         set(payload){
+            console.log(payload);
             this.store.changeFirstName(payload)
         },
     },
@@ -68,6 +84,7 @@ computed:{
             return this.store.profileLastName;
         },
         set(payload){
+            console.log(payload)
             this.store.changeLastName(payload)
         },
     },
@@ -82,7 +99,15 @@ computed:{
     email(){
         return this.store.profileEmail;
     }
-}
+},
+created(){
+      getAuth().onAuthStateChanged(async (user) => {
+        this.store.updateUser(user);
+        if(!user){
+         this.$router.push({ name: 'index' } );
+        }
+      })
+    },
 };
 </script>
 
