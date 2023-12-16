@@ -47,9 +47,9 @@ export default {
         removeFromCart(){
             this.store.removeFromCart(this.currentProduct)
         },
-        async product_description(){
+        product_description(){
             console.log(this.products);
-            this.currentProduct = await this.products.filter((product) => {
+            this.currentProduct = this.products.filter((product) => {
         return product.id == this.$route.params.id;
     })[0];
         }
