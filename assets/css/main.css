@@ -311,7 +311,7 @@ header{
 
 .cartIcon{
     position: absolute;
-    top: 27px;
+    top: 37px;
     right: 0%;
     }
     .cartIcon i {
@@ -320,7 +320,6 @@ header{
     }
     .cart-Icon{
         position: absolute;
-        top: 27px;
         right: 5%;
         font-size: 30px;
         }
@@ -349,8 +348,8 @@ header{
 /* user */
 .userIcon{
     position: absolute;
-    top: 20px;
-    right: -10%;
+    top: 30px;
+    right: 8%;
     border: 2px solid #3398ff;
     padding: 7px;
     border-radius: 25px;

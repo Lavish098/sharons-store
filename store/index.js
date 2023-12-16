@@ -27,10 +27,15 @@ export const productStore = defineStore('product', {
     getters: {
       productFeeds: state => {
         return state.productItems.slice(0, 6)
-      
       },
       products: state => {
+        console.log(state.productItems);
         return state.productItems
+      },
+      productQuantity: state => product =>{
+        const item = state.cart.find(i => i.id === product.id)
+        if(item) return item.quantity
+        else return null
       },
       cartItems: state => {
         return state.cart
@@ -68,7 +73,7 @@ async getProducts(){
   const result = await fetch('https://fakestoreapi.com/products')
    const data = await result.json();
    this.productItems = data
-
+   console.log(this.productItems);
  },
  updateUser(user){
   console.log(user)

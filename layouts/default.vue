@@ -66,6 +66,8 @@
 <script>
 import '@/fontawesome-free-5.15.1-web/css/all.css'
 import { productStore } from  '../store/index'
+import { getAuth } from 'firebase/auth'
+
 
 export default {
 data(){
@@ -89,6 +91,15 @@ mounted(){
 },
 created(){
       this.store.getProducts();
+       getAuth().onAuthStateChanged(async (user) => {
+        this.store.updateUser(user);
+        if(user){
+          console.log(user)
+          this.store.getCurrentUser(user);
+          this.store.setProfileInfo()
+          this.store.setProfileInitials()
+        }
+      })
    
   },
 

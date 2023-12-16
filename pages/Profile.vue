@@ -5,7 +5,8 @@
           <h2>Account Settings</h2>
           <div class="profile-info">
               <div class="initials">
-                <span>{{ this.store.profileInitials }}</span></div>
+                <span>{{ store.profileInitials }}</span>
+                </div>
               <div class="admin-badge">
                   <i class="fas fa-user-shield icon"></i>
                   <span>Admin</span>
@@ -106,6 +107,9 @@ created(){
         if(!user){
          this.$router.push({ name: 'index' } );
         }
+        this.store.getCurrentUser(user);
+          this.store.setProfileInfo()
+          this.store.setProfileInitials()
       })
     },
 };

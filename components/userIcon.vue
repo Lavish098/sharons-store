@@ -86,8 +86,8 @@ span{
 }
 .profile .profile-menu{
     position: absolute;
-    top: 30%;
-    right: -100%;
+    top: 80%;
+    right: 10%;
     width: 300px;
     background-color: #007eff;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.86);

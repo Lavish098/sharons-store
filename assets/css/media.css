@@ -6,7 +6,7 @@
             left: 10%;
             top: 65px;
 }
-  .cartIcon{
+  .cart-Icon{
             right: 1%;
             }
 .name{
@@ -166,11 +166,9 @@
         left: 1%;
     }
     .cartIcon{
-        right: 0%;
+        right: 5%;
     }
-    .userIcon{
-        right: -8%;
-    }
+   
     .nav-links{
         margin-top: 5px;
         left: 30%;
@@ -179,7 +177,8 @@
 @media screen and (min-width: 984px) {
     .nav-links{
         margin-top: 5px;
-        left: 45%;
+        left: 39%;
     }
+    
 }
 

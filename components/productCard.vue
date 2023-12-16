@@ -1,15 +1,15 @@
 <template>
   <div class="product-card">
       <div class="info" >
-        <img :src="this.image" alt=""/>
+        <!-- <img :src="this.image" alt=""/> -->
           <h4>{{ product.title }}</h4>
           <p class="price">₦ {{ product.price.toLocaleString() }}</p>
           <button @click="store.addToCart(product)">Add to Cart</button>
-    <!-- <nuxt-link :to="{name: 'productDescription', params:{productid: this.product.id} }">
+    <nuxt-link :to="{name: 'id', params:{id: product.id} }">
         <i class="fas fa-eye">
         Quick View
         </i>
-    </nuxt-link> -->
+    </nuxt-link>
       </div>
   </div>
 </template>

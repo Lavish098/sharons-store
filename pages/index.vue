@@ -50,15 +50,7 @@ export default {
   },
   
   created(){
-      getAuth().onAuthStateChanged(async (user) => {
-        this.store.updateUser(user);
-        if(user){
-          console.log(user)
-          this.store.getCurrentUser(user);
-          this.store.setProfileInfo()
-          this.store.setProfileInitials()
-        }
-      })
+      
     },
   methods:{
     viewProduct(product){
