@@ -90,7 +90,6 @@ mounted(){
   }
 },
 created(){
-      this.store.getProducts();
        getAuth().onAuthStateChanged(async (user) => {
         this.store.updateUser(user);
         if(user){

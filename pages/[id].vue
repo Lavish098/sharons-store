@@ -1,77 +1,90 @@
 <template>
-<div  v-if="currentProduct" class="product-description" >
-    
-        <div class="img">
-        <!-- <img :src="this.image" alt=""/> -->
-        </div>
-        <div class="product-container">
-
-        <div class="product-details">
-        <h1>{{ this.currentProduct.name }}</h1>
-        <h2> ₦{{ this.currentProduct.price.toLocaleString() }}</h2>
-        <h3>{{ this.currentProduct.description }}</h3>
-        </div>
-    <div v-if="product_total" class="cart-total">
+  <div>
+    <div v-if="currentProduct" class="product-description">
+<div class="product-img">
+      <img :src="productImage" alt="" />
+    </div>
+    <div class="product-container">
+      <div class="product-details">
+        <h1>{{ currentProduct.name }}</h1>
+        <h2>₦{{ currentProduct.price.toLocaleString() }}</h2>
+        <h3>{{ currentProduct.description }}</h3>
+      </div>
+      <div v-if="product_total" class="cart-total">
         <h3>In cart </h3>
         <h3>{{ product_total }}</h3>
+      </div>
+      <div class="button-container">
+        <button class="add" @click="addToCart">Add To Cart</button>
+      </div>
+    </div>
+    </div>
+    <div class="category-container">
+      <h1> Similar Products</h1>
+      <div class="category">
+          <categoryCard :product="category" v-for="category in category" :key="category.id"/>
+
+      </div>
     </div>
 
-    <div class="button-container">
-        <button class="remove" @click="removeFromCart">-</button>
-        <button class="add" @click="addToCart">+</button>
-    </div>
-
-<!-- <review :currentProduct="reviewId"/> -->
-        </div>
   </div>
 </template>
 
 <script>
-import { productStore } from '../store/index'
+import { productStore } from '../store/index';
+
 export default {
-    props:[ 'active'],
-    data(){
-        return{
-            store: productStore(),
-            // reviewId: this.$route.params.productid,
-            currentProduct: null,
-            product :[]
-            // image: this.currentProduct.image
-
-        }
+  props: ['active'],
+  data() {
+    return {
+      store: productStore(),
+      currentProduct: null,
+      category: null,
+    };
+  },
+  methods: {
+    addToCart() {
+      this.store.addToCart(this.currentProduct);
     },
-    methods:{
-        addToCart(){
-            this.store.addToCart(this.currentProduct)
-        },
-        removeFromCart(){
-            this.store.removeFromCart(this.currentProduct)
-        },
-        product_description(){
-            console.log(this.products);
-            this.currentProduct = this.products.filter((product) => {
-        return product.id == this.$route.params.id;
-    })[0];
-        }
-
-    }, 
-    computed:{
-        product_total(){
-            return this.store.productQuantity(this.currentProduct)
-        },
-        products(){
-      return this.store.products
-    }
+    removeFromCart() {
+      this.store.removeFromCart(this.currentProduct);
     },
-    created(){
-       this.product_description()
-//     this.$store.commit('updateCartFromLocalStorage')
-//   this.$store.commit('updateProductReviewsFromLocalStorage')
-  }
-
-}
+    async product_description() {
+        const products = await this.store.products
+        console.log(products)
+      this.currentProduct = products.find(
+        (product) => product.id == this.$route.params.id
+      );
+    },
+    async product_category() {
+        const products = await this.store.products
+      this.category = products.filter(
+        (product) => product.category == this.currentProduct.category
+      );
+      console.log(this.category);
+    },
+  },
+  computed: {
+    product_total() {
+      return this.store.productQuantity(this.currentProduct);
+    },
+    productImage() {
+      return this.currentProduct ? this.currentProduct.image : '';
+    },
+  },
+  watch: {
+    $route(to, from) {
+      this.product_description();
+    },
+  },
+  async created() {
+    // await this.store.getProducts();
+    await this.product_description();
+    await this.product_category();
+  },
+};
 </script>
 
 <style>
-
+/* Add your styles here */
 </style>

@@ -41,6 +41,9 @@ export default {
       this.active.product_drawer = false
     }
   },
+  created(){
+          this.store.getProducts();
+  }
 }
 </script>
 <style>
