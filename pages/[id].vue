@@ -6,7 +6,7 @@
     </div>
     <div class="product-container">
       <div class="product-details">
-        <h1>{{ currentProduct.name }}</h1>
+        <h1>{{ currentProduct.title }}</h1>
         <h2>₦{{ currentProduct.price.toLocaleString() }}</h2>
         <h3>{{ currentProduct.description }}</h3>
       </div>

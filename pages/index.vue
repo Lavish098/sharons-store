@@ -48,10 +48,9 @@ export default {
       return this.store.productFeeds;
     },
   },
-  
   created(){
-      
-    },
+          this.store.getProducts();
+  },
   methods:{
     viewProduct(product){
       this.product = product

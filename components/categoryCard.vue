@@ -2,8 +2,8 @@
   <div class="product-card">
       <div class="info" >
         <img :src="this.image" alt=""/>
-          <h4>{{ product.name }}</h4>
-          <!-- <p class="price">₦ {{ product.price.toLocaleString() }}</p> -->
+          <h4>{{ product.title }}</h4>
+          <p class="price">₦ {{ product.price.toLocaleString() }}</p>
           <button @click="store.addToCart(product)">Add to Cart</button>
     <nuxt-link :to="{name: 'id', params:{id: product.id} }">
         <i class="fas fa-eye">
