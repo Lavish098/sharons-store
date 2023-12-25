@@ -78,7 +78,7 @@ export default {
     },
   },
   async created() {
-    // await this.store.getProducts();
+    await this.store.getProducts();
     await this.product_description();
     await this.product_category();
   },
