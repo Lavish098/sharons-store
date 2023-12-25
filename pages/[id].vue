@@ -19,7 +19,7 @@
       </div>
     </div>
     </div>
-    <div class="category-container">
+    <div class="category-container" v-if="currentProduct">
       <h1> Similar Products</h1>
       <div class="category">
           <categoryCard :product="category" v-for="category in category" :key="category.id"/>
